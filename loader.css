@@ -1,0 +1,4 @@
+/* Simple global loader using .rc-loading on body */
+body .rc-global-loader { display:none; position:fixed; right:1rem; top:1rem; width:36px; height:36px; border-radius:50%; border:3px solid rgba(255,255,255,0.15); border-left-color:transparent; animation:rc-rot 1s linear infinite; z-index:2000; }
+body.rc-loading .rc-global-loader { display:block; }
+@keyframes rc-rot { to { transform: rotate(360deg); } }
