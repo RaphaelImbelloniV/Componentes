@@ -1,14 +1,25 @@
-# Grid Auto Resize
-Utilitário que calcula a quantidade de colunas baseada na largura do container.
+# MovieCard
+Componente que gera um card para representar um item (filme / mídia).
 
 ## Arquivos
-- `grid-auto-resize.js` - exporta `autoGrid(container, cardMinWidth)`.
-- `grid-auto-resize.css` - estilos básicos para grid que usa a variável `--rc-grid-columns`.
+- `movie-card.js` - função `MovieCard(props, onClick)` que retorna um elemento DOM.
+- `movie-card.css` - estilos mínimos e variáveis CSS utilizadas.
 
 ## Uso
-```js
-import { autoGrid } from './grid-auto-resize.js';
-const list = document.getElementById('result-wrapper');
-autoGrid(list, 200);
-window.addEventListener('resize', () => autoGrid(list, 200));
+Importe o JS e o CSS no seu projeto:
+
+```html
+<link rel="stylesheet" href="movie-card.css">
+<script type="module">
+  import { MovieCard } from './movie-card.js';
+  const root = document.getElementById('list');
+  const card = MovieCard({ id: 'tt0123456', image: 'poster.jpg', title: 'Título', meta: '2020' }, (e, data) => {
+    console.log('clicou', data);
+  });
+  root.appendChild(card);
+</script>
 ```
+
+## Observações
+- Usa a variável CSS `--rc-poster-height` para ajustar a altura do poster.
+- O componente retorna um elemento DOM (não usa framework).
