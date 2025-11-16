@@ -1,0 +1,2 @@
+.rc-grid { display:flex; flex-wrap:wrap; gap:.5rem; }
+.rc-grid > * { flex: 0 0 calc((100% - (var(--rc-grid-columns,4) * .5rem)) / var(--rc-grid-columns,4)); }
