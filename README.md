@@ -1,14 +1,12 @@
-# Grid Auto Resize
-Utilitário que calcula a quantidade de colunas baseada na largura do container.
+# NoContentPlaceholder
+Pequeno componente para exibir quando uma lista está vazia.
 
 ## Arquivos
-- `grid-auto-resize.js` - exporta `autoGrid(container, cardMinWidth)`.
-- `grid-auto-resize.css` - estilos básicos para grid que usa a variável `--rc-grid-columns`.
+- `no-content.js` - exporta função `NoContent(message)`.
+- `no-content.css` - estilos simples.
 
 ## Uso
 ```js
-import { autoGrid } from './grid-auto-resize.js';
-const list = document.getElementById('result-wrapper');
-autoGrid(list, 200);
-window.addEventListener('resize', () => autoGrid(list, 200));
+import { NoContent } from './no-content.js';
+root.appendChild(NoContent('Nada encontrado para sua busca.'));
 ```
