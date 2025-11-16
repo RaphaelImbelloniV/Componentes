@@ -1,14 +1,25 @@
-# Grid Auto Resize
-Utilitário que calcula a quantidade de colunas baseada na largura do container.
+# MovieDetails (DetailsDrawer)
+Drawer lateral / modal para exibir informações detalhadas de um item.
 
 ## Arquivos
-- `grid-auto-resize.js` - exporta `autoGrid(container, cardMinWidth)`.
-- `grid-auto-resize.css` - estilos básicos para grid que usa a variável `--rc-grid-columns`.
+- `movie-details.js` - fábrica `MovieDetails()` que retorna um objeto com `{ element, open, close, toggle }`.
+- `movie-details.css` - estilos do drawer.
 
 ## Uso
-```js
-import { autoGrid } from './grid-auto-resize.js';
-const list = document.getElementById('result-wrapper');
-autoGrid(list, 200);
-window.addEventListener('resize', () => autoGrid(list, 200));
+```html
+<link rel="stylesheet" href="movie-details.css">
+<script type="module">
+  import { MovieDetails } from './movie-details.js';
+  const drawer = MovieDetails();
+  document.body.appendChild(drawer.element);
+  drawer.open({
+    title: 'Nome do filme',
+    poster: 'poster.jpg',
+    fields: [{label:'Ano:', value:'2020'}, {label:'Gênero:', value:'Ação'}]
+  });
+</script>
 ```
+
+## Observações
+- O componente assume que será anexado ao `document.body`.
+- Não faz chamadas à API — apenas renderiza conteúdo fornecido.
